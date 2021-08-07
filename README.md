@@ -14,7 +14,7 @@ Displays your current activity on your PlayStation®4 or PlayStation®5 as a Dis
     NPSSO_KEY: H5MYhQKS3UwcHm6HQmWzYjwCm7bjgarfWPglQ9Zz7XdzTZ0FLFNsPUvxOnRPRlab
     ```
    Note: this isn't a valid NPSSO_KEY, this is just an example. Don't share your key with anyone.
-4. Enter your PlayStation Online ID as PLAYSTATION_USERID. This is your unique PlayStation username, not your email or
+4. Enter your PlayStation Online ID as PLAYSTATION_ONLINE_ID. This is your unique PlayStation username, not your email or
    your real name.
    ```yaml
    PLAYSTATION_ONLINE_ID: CookieMonster
