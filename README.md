@@ -2,6 +2,8 @@
 
 Displays your current activity on your PlayStation®4 or PlayStation®5 as a Discord rich presence.
 
+![screenshot image](https://raw.githubusercontent.com/voidel/playstation-discord-status/main/screenshots/screenshot_01.png)
+
 ## Getting started
 
 1. Sign in to your PlayStation account at [https://www.playstation.com/](https://www.playstation.com/).
@@ -41,7 +43,3 @@ Displays your current activity on your PlayStation®4 or PlayStation®5 as a Dis
 * PSNAWP doesn't support game session time, it won't know for how long you were playing the game prior to starting the
   program.
 * Untested on Linux, but there's nothing platform-specific in the code and the third party libraries support Linux.
-
-## Screenshots
-
-![screenshot image](https://raw.githubusercontent.com/voidel/playstation-discord-status/main/screenshots/screenshot_01.png)
