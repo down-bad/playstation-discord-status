@@ -27,7 +27,7 @@ class PlaystationDiscordStatus:
 
         # Config variables
         self.NPSSO_KEY = self.config["NPSSO_KEY"]
-        self.PLAYSTATION_USERID = self.config["PLAYSTATION_USERID"]
+        self.PLAYSTATION_ONLINE_ID = self.config["PLAYSTATION_ONLINE_ID"]
         self.CLIENT_APP_ID = self.config["CLIENT_APP_ID"]
 
         # System (PS4, PS5)
@@ -45,7 +45,7 @@ class PlaystationDiscordStatus:
 
         while True:
 
-            user_online_id = psnawp_client.user(online_id=self.PLAYSTATION_USERID)
+            user_online_id = psnawp_client.user(online_id=self.PLAYSTATION_ONLINE_ID)
             presence = user_online_id.get_presence()
 
             # Timer to give to Discord
