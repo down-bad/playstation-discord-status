@@ -4,10 +4,10 @@ services:
 
   daemon:
     container_name: playstation_discord
-    build: .
+    build:
+      context: .
     restart: always
-    command: main.py
-    volumes:
-      - ./config:/app/config
+    command: python -u main.py
+    env_file: config.env
     environment:
       CONFIG: ./config/cobra-bot.yml
