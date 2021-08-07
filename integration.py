@@ -46,7 +46,7 @@ class Integration:
         game_id = game_info["npTitleId"]
         game_title = game_info.get("titleName")
         if game_info.get("gameStatus"):
-            game_title += ", " + game_info.get("gameStatus")
+            game_title = f"{game_title}: {game_info['gameStatus']}"
 
         opts = {
             "state": game_title,

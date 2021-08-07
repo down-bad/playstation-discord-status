@@ -4,6 +4,12 @@ Displays your current activity on your PlayStation®4 or PlayStation®5 as a Dis
 
 ![screenshot image](https://raw.githubusercontent.com/voidel/playstation-discord-status/main/screenshots/screenshot_01.png)
 
+## Features
+* Displays current game being played and time elapsed.
+* Displays a generic online presence if not currently playing a game.
+* Removes rich presence if offline.
+* Displays additional status next to the game if avaiable, i.e. `Red Dead Depenmption 2: Playing Chapter 1 Colter`
+
 ## Getting started
 
 1. Sign in to your PlayStation account at [https://www.playstation.com/](https://www.playstation.com/).
