@@ -43,6 +43,7 @@ Displays your current activity on your PlayStation®4 or PlayStation®5 as a Dis
 
 ## Limitations
 
+* Has to run locally on the machine where Discord is running.
 * My original goal was to containerise this and run it 24/7 on a remote server. Unfortunately you can only update rich
   presence for a Discord user account using RPC on the local machine.
 * Most game icons are unsupported, unless they are added to the Discord App Client.
