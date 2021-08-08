@@ -8,7 +8,7 @@ Displays your current activity on your PlayStation®4 or PlayStation®5 as a Dis
 * Displays current game being played and time elapsed.
 * Displays a generic online presence if not currently playing a game.
 * Removes rich presence if offline.
-* Displays additional status next to the game if avaiable, i.e. `Red Dead Depenmption 2: Playing Chapter 1 Colter`
+* Displays additional status next to the game if avaiable, i.e. `Red Dead Redemption 2: Playing Chapter 1 Colter`
 
 ## Getting started
 
