@@ -48,17 +48,16 @@ class PlaystationDiscordStatus:
             user_online_id = psnawp_client.user(online_id=self.PLAYSTATION_ONLINE_ID)
             presence = user_online_id.get_presence()
 
-            # Timer to give to Discord
-            start_time = int(time.time())
+            if presence != previous_presence:
 
-            online_status = presence["primaryPlatformInfo"]["onlineStatus"]
-            if online_status == "offline":
-                self.integration.clear_presence()
-                self.log.info("User is offline.")
+                online_status = presence["primaryPlatformInfo"]["onlineStatus"]
 
-            elif presence != previous_presence:
+                if online_status == "offline" and online_status != previous_status:
 
-                if online_status != previous_status:
+                    # Remove the presence
+                    self.integration.clear_presence()
+
+                else:
 
                     # Display correct system in presence
                     platform = presence["primaryPlatformInfo"]["platform"]
@@ -68,21 +67,20 @@ class PlaystationDiscordStatus:
                         self.system = "ps4_main"
                     self.integration.connect_presence(self.CLIENT_APP_ID)
 
-                if "gameTitleInfoList" not in presence:
+                    if "gameTitleInfoList" not in presence:
 
-                    # User isn't playing a game
-                    self.integration.online_not_ingame(start_time)
-                    self.log.info("User is online but not in-game.")
+                        # User isn't playing a game
+                        self.integration.online_not_ingame()
 
-                else:
+                    else:
 
-                    game_info = presence["gameTitleInfoList"][0]
-                    self.integration.online_ingame(start_time, game_info)
-                    self.log.info(f"User is playing {game_info['titleName']}.")
+                        game_info = presence["gameTitleInfoList"][0]
+                        self.integration.online_ingame(game_info)
 
-            time.sleep(15)
+                previous_status = online_status
+
             previous_presence = presence
-            previous_status = online_status
+            time.sleep(15)
 
 
 if __name__ == "__main__":
