@@ -31,6 +31,8 @@ class Integration:
     def clear_presence(self):
         if self.rpc:
             self.rpc.clear()
+        self.current_activity = None
+        self.start_time = None
         self.controller.log.info("User is now offline.")
 
     def connect_presence(self, app_id):
