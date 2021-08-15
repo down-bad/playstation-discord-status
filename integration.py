@@ -4,6 +4,7 @@ from pypresence import Presence
 
 supported_games = [
     "CUSA08519_00",
+    "CUSA20602_00"
 ]
 
 system_names = {
@@ -62,6 +63,8 @@ class Integration:
         self.controller.log.info("User is online but not in-game.")
 
     def online_ingame(self, game_info):
+
+        #print(game_info)
 
         game_id = game_info["npTitleId"]
         game_title = game_info.get("titleName")
