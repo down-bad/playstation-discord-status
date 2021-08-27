@@ -39,7 +39,7 @@ class Integration:
     def connect_presence(self, app_id):
         if self.rpc:
             self.rpc.clear()
-        self.rpc = Presence(app_id)
+        self.rpc = Presence(app_id, pipe=0)
         self.rpc.connect()
 
     def online_not_ingame(self):
