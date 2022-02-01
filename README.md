@@ -2,6 +2,9 @@
 
 Displays your current activity on your PlayStation®4 or PlayStation®5 as a Discord rich presence.
 
+> Discord now supports PlayStation account integration officially, so this application is no longer required.
+https://www.playstation.com/en-us/support/subscriptions/link-psn-status-discord/
+
 ![screenshot image](https://raw.githubusercontent.com/voidel/playstation-discord-status/main/screenshots/screenshot_01.png)
 
 ## Features
