@@ -1,17 +1,10 @@
 import time
-
 from pypresence import Presence
-
-supported_games = [
-    "CUSA08519_00",
-    "CUSA20602_00"
-]
 
 system_names = {
     "ps4_main": "PlayStation®4",
     "ps5_main": "PlayStation®5",
 }
-
 
 class Integration:
 
@@ -52,9 +45,7 @@ class Integration:
         opts = {
             "state": "Online",
             "start": start_time,
-            "small_image": self.controller.system,
             "large_image": self.controller.system,
-            "small_text": system_names[self.controller.system],
             "large_text": "Not in-game"
         }
         self.rpc.update(**opts)
@@ -64,32 +55,40 @@ class Integration:
 
     def online_ingame(self, game_info):
 
-        #print(game_info)
+        # print(game_info)
 
         game_id = game_info["npTitleId"]
+        
+        if game_info.get("npTitleIconUrl"):
+            game_image = game_info["npTitleIconUrl"]
+        elif game_info.get("conceptIconUrl"):
+            game_image = game_info["conceptIconUrl"]
+
         game_title = game_info.get("titleName")
+
+        game_status = None
         if game_info.get("gameStatus"):
-            game_title = f"{game_title}: {game_info['gameStatus']}"
+            game_status = game_info['gameStatus']
 
         if game_id != self.current_activity:
             start_time = int(time.time())
         else:
             start_time = self.start_time
 
-        if game_id in supported_games:
-            large_image = game_id.lower()
-        else:
-            large_image = self.controller.system
-            self.controller.log.debug(f"Unsupported game, game icon can be added from: {game_info['npTitleIconUrl']}")
+        if game_image:
+            large_image = game_image
 
         opts = {
-            "state": game_title,
+            "details": game_title,
             "start": start_time,
-            "small_image": self.controller.system,
             "large_image": large_image,
-            "small_text": system_names[self.controller.system],
             "large_text": game_title
         }
+
+        # if game_status exists, add it to the presence
+        if game_status:
+            opts["state"] = game_status
+
         self.rpc.update(**opts)
         self.current_activity = game_id
         self.start_time = start_time

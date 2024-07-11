@@ -46,7 +46,7 @@ class PlaystationDiscordStatus:
         while True:
 
             user_online_id = psnawp_client.user(online_id=self.PLAYSTATION_ONLINE_ID)
-            presence = user_online_id.get_presence()
+            presence = user_online_id.get_presence()["basicPresence"]
 
             if presence != previous_presence:
 
@@ -70,7 +70,8 @@ class PlaystationDiscordStatus:
                     if "gameTitleInfoList" not in presence:
 
                         # User isn't playing a game
-                        self.integration.online_not_ingame()
+                        # self.integration.online_not_ingame()
+                        self.integration.clear_presence()
 
                     else:
 
